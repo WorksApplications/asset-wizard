@@ -1,6 +1,4 @@
-# mount current directory to /app
-
-# gradle:jdk8-alpine has following problem, so we install gradle during build
+# gradle:jdk8-alpine has following problem, so we install gradle manually during build
 # https://github.com/keeganwitt/docker-gradle/issues/29
 FROM openjdk:8-jdk-alpine as builder
 
