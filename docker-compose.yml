@@ -1,3 +1,5 @@
+# run `docker-compose up` and access to http://localhost:8080/
+
 version: '3'
 services:
   db:
@@ -11,3 +13,11 @@ services:
       spring.datasource.url: "jdbc:postgresql://db:5432/asset-wizard"
     depends_on:
       - db
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    environment:
+     - NGINX_PORT=80
+    depends_on:
+      - backend
