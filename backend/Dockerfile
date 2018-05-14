@@ -11,7 +11,7 @@ RUN /app/gradlew -v
 
 # build project and generates jar file into /app/build/libs directory
 COPY . /app/
-RUN cd /app && rm -rf build && ./gradlew assemble
+RUN cd /app && rm -rf build && ./gradlew check assemble
 
 
 FROM openjdk:8-jre-alpine
