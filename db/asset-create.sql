@@ -7,7 +7,7 @@ CREATE TABLE public.allocations
   e_date timestamp without time zone,
   allocation_date timestamp without time zone,
   CONSTRAINT allocations_pkey PRIMARY KEY (allocation_id)
-)
+);
 
 CREATE TABLE public.assets
 (
@@ -21,7 +21,7 @@ CREATE TABLE public.assets
   custom_columns jsonb,
   code character(50),
   CONSTRAINT assets_pkey PRIMARY KEY (id)
-)
+);
 
 CREATE TABLE public.assets_custom_cols
 (
@@ -29,7 +29,7 @@ CREATE TABLE public.assets_custom_cols
   col_header character(100) NOT NULL,
   col_value character(100) NOT NULL,
   CONSTRAINT assets_custom_pkey PRIMARY KEY (asset_id, col_header, col_value)
-)
+);
 
 CREATE TABLE public.employees
 (
@@ -38,4 +38,4 @@ CREATE TABLE public.employees
   email_id character(100),
   is_employed boolean,
   CONSTRAINT employees_pkey PRIMARY KEY (emp_id)
-)
+);
