@@ -7,5 +7,7 @@ services:
       POSTGRES_DB: "asset-wizard"
   backend:
     build: ./backend
+    environment:
+      spring.datasource.url: "jdbc:postgresql://db:5432/asset-wizard"
     depends_on:
       - db
