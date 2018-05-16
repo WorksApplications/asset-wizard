@@ -9,8 +9,7 @@ install:
 script:
   - docker-compose run --rm build-backend
   - docker-compose run --rm build-frontend
-  - docker-compose up -d --build
-  - curl -v http://localhost:8080/
+  - docker-compose run integration-test
 
 after_script:
   - docker-compose down

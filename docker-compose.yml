@@ -37,3 +37,18 @@ services:
     volumes:
       - ./frontend:/app
       - $HOME/.cache:/usr/local/share/.cache
+  # following services are for integration test
+  selenium-hub:
+    image: selenium/standalone-chrome:3
+    depends_on:
+      - frontend
+  integration-test:
+    image: node:8-alpine
+    working_dir: /app
+    command: "npm install-test"
+    volumes:
+      - ./integration-test:/app
+    environment:
+      SELENIUM_REMOTE_URL: "http://selenium-hub:4444/wd/hub"
+    depends_on:
+      - selenium-hub
