@@ -3,9 +3,13 @@ sudo: required
 services:
   - docker
 
+install:
+  - docker-compose build build-frontend
+
 script:
-  - docker-compose build --force-rm
-  - docker-compose up -d
+  - docker-compose run --rm build-backend
+  - docker-compose run --rm build-frontend
+  - docker-compose up -d --build
   - curl -v http://localhost:8080/
 
 after_script:
