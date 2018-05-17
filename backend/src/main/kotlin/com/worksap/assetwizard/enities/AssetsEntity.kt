@@ -10,7 +10,7 @@ import javax.persistence.*
 data class AssetsEntity (
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id:Int?,
 
     @Column(name="name")
