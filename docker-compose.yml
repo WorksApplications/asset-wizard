@@ -1,0 +1,39 @@
+# run `docker-compose up` and access to http://localhost:8080/
+
+version: '3.4'
+services:
+  db:
+    build: ./db
+    environment:
+      POSTGRES_PASSWORD: "ayush"
+      POSTGRES_DB: "asset-wizard"
+  backend:
+    build: ./backend
+    environment:
+      spring.datasource.url: "jdbc:postgresql://db:5432/asset-wizard"
+    depends_on:
+      - db
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    environment:
+      - NGINX_PORT=80
+    depends_on:
+      - backend
+  # following services are for building project
+  build-backend:
+    image: openjdk:8-jdk-alpine
+    working_dir: /app
+    command: "./gradlew check assemble --no-daemon"
+    volumes:
+      - ./backend:/app
+      - $HOME/.gradle:/root/.gradle
+  build-frontend:
+    build:
+      context: ./frontend
+      target: builder
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+      - $HOME/.cache:/usr/local/share/.cache

@@ -1,22 +1,15 @@
-<p align="center"><a href="https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f"><img src="https://i.imgur.com/PATsTx2.png" title="View tutorial" alt="React, React Router, Redux and Redux Thunk" width="900"></a></p>
+# asset-wizard frontend
 
-[![Dependency Status](https://dependencyci.com/github/notrab/create-react-app-redux/badge)](https://dependencyci.com/github/notrab/create-react-app-redux)
+## Getting Started
 
-* Tutorial: [Getting started with create-react-app, Redux, React Router & Redux Thunk](https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f)
-* Example: [View on Heroku](https://cra-redux-router-thunk.herokuapp.com/) 🙌
+### How to Build
 
-## Installation
+Run `yarn install --pure-lockfile` first in this directory, then run `yarn run build`.
 
-```bash
-git clone https://github.com/notrab/create-react-app-redux.git
-cd create-react-app-redux
-yarn
-```
+Or run `docker-compose run --rm build-frontend` in project root directory, to build on container.
 
-## Get started
+### How to run service in local
 
-```bash
-yarn start
-```
+Firstly run PostgreSQL and backend service in your local. See [backend/README.md](../backend/README.md) for detail.
 
-This boilerplate is built using [create-react-app](https://github.com/facebookincubator/create-react-app) so you will want to read the User Guide for more goodies.
+Then run `yarn start` in this directory, then you can access this service at http://localhost:3000/.
