@@ -10,7 +10,7 @@ This service needs JDK and yarn to build. See README.md in each sub directories.
 
 ### How to run service in local
 
-Or run `docker-compose up` in this project root directory, then necessary middlewares run in container and you can access http://localhost:8080/.
+Or run `docker-compose up frontend` in this project root directory, then necessary middlewares run in container and you can access http://localhost:8080/.
 
 ## Copyright and License
 

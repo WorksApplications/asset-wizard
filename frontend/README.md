@@ -4,7 +4,9 @@
 
 ### How to Build
 
-Run `yarn install --pure-lockfile` first in this directory, then run `yarn build`.
+Run `yarn install --pure-lockfile` first in this directory, then run `yarn run build`.
+
+Or run `docker-compose run --rm build-frontend` in project root directory, to build on container.
 
 ### How to run service in local
 

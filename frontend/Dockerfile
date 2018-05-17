@@ -1,17 +1,9 @@
-FROM alpine:3.7 as builder
+FROM node:8-alpine as builder
 
-# install yarn
-# https://yarnpkg.com/en/docs/install#alpine-stable
-WORKDIR /app
-RUN apk add --no-cache yarn && \
-    yarn --version
-
-COPY . /app
-RUN rm -rf node_modules build && \
-    yarn install --pure-lockfile && \
-    yarn run build
+RUN echo 'yarn install && yarn run build' > /build.sh
+ENTRYPOINT ["sh", "/build.sh"]
 
 FROM nginx:stable-alpine
 
-COPY --from=builder /app/build /data/www
+COPY ./build /data/www
 COPY nginx.conf /etc/nginx/nginx.conf
