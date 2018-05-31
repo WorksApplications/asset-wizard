@@ -10,7 +10,11 @@ This service needs JDK and yarn to build. See README.md in each sub directories.
 
 ### How to run service in local
 
-Or run `docker-compose up frontend` in this project root directory, then necessary middlewares run in container and you can access http://localhost:8080/.
+Run `docker-compose up frontend` in this project root directory, then necessary middlewares run in container and you can access http://localhost:8080/.
+
+### How to run integration test in local
+
+After you launch service by `docker-compose up -d frontend`, run `docker-compose run integration-test` then it launches Selenium Hub and run integration tests in integration-test sub directory.
 
 ## Copyright and License
 
