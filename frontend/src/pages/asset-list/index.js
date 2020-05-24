@@ -34,6 +34,14 @@ const styles = theme => ({
   },
   dialogFormContainer: {
     minWidth: '500px'
+  },
+  noAssetHeading: {
+    position: 'relative',
+    top: '25%',
+    textAlign: 'center',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    color: '#757575'
   }
 });
 class AssetList extends React.Component {
@@ -71,16 +79,24 @@ class AssetList extends React.Component {
         return results.json();
       })
       .then(data => {
-        let assets = data.map((asset, index) => {
-          return (
-            <AssetCard
-              key={index}
-              name={asset.name}
-              brand={asset.brand}
-              code={asset.code}
-            />
-          );
-        });
+        const { classes } = this.props;
+        let assets = (
+          <h1 className={classes.noAssetHeading}>
+            There are no assets registered.
+          </h1>
+        );
+        if (data.length != 0) {
+          assets = data.map((asset, index) => {
+            return (
+              <AssetCard
+                key={index}
+                name={asset.name}
+                brand={asset.brand}
+                code={asset.code}
+              />
+            );
+          });
+        }
         this.setState({ assets: assets });
       });
   };
